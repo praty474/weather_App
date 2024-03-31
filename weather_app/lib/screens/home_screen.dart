@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 46, 49, 146),
                   ),
                 ),
               ),
@@ -41,18 +41,18 @@ class HomeScreen extends StatelessWidget {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 46, 49, 146),
                   ),
                 ),
               ),
               Align(
                 alignment: const AlignmentDirectional(0, -1.5),
                 child: Container(
-                  height: 300,
+                  height: 200,
                   width: 600,
                   decoration: const BoxDecoration(
                     shape: BoxShape.rectangle,
-                    color: Colors.amber,
+                    color: Color.fromARGB(255, 27, 255, 255),
                   ),
                 ),
               ),

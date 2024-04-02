@@ -8,14 +8,14 @@ sealed class WeatherBlocState {
 
 final class WeatherBlocInitial extends WeatherBlocState {}
 
-final class WeatherBlockLoading extends WeatherBlocState {}
+final class WeatherBlocLoading extends WeatherBlocState {}
 
-final class WeatherBlockFailure extends WeatherBlocState {}
+final class WeatherBlocFailure extends WeatherBlocState {}
 
-final class WeatherBlockSuccess extends WeatherBlocState {
+final class WeatherBlocSuccess extends WeatherBlocState {
   final Weather weather;
 
-   WeatherBlockSuccess(this.weather);
+  WeatherBlocSuccess(this.weather);
 
   @override
   List<Object> get props => [weather];

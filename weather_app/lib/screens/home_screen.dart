@@ -6,8 +6,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc_bloc.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Widget getWeatherIcon(int code) {
+    switch (code) {
+      case > 200 && <= 300:
+        return Image.asset('assets/1.png');
+      case > 300 && <= 400:
+        return Image.asset('assets/2.png');
+      case > 500 && <= 600:
+        return Image.asset('assets/3.png');
+      case > 600 && <= 700:
+        return Image.asset('assets/4.png');
+      case > 700 && <= 800:
+        return Image.asset('assets/5.png');
+      case == 800:
+        return Image.asset('assets/6.png');
+      case > 800 && <= 804:
+        return Image.asset('assets/7.png');
+      default:
+        return Image.asset('assets/7.png');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +119,10 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Image.asset('assets/3.png'),
+                          getWeatherIcon(state.weather.weatherConditionCode!),
                           Center(
                             child: Text(
-                              '${state.weather.temperature}',
+                              '${state.weather.temperature!.celsius!.round()}°C',
                               style: const TextStyle(
                                   fontSize: 55,
                                   color: Colors.white,
@@ -114,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Center(
                             child: Text(
-                              DateFormat('EEEE dd . ')
+                              DateFormat('EEEE dd .')
                                   .add_jm()
                                   .format(state.weather.date!),
                               // 'Friday 16 9:05 am',
@@ -240,7 +266,7 @@ class HomeScreen extends StatelessWidget {
                                         height: 3,
                                       ),
                                       Text(
-                                        '${state.weather.tempMax!.celsius!.round()}',
+                                        '${state.weather.tempMax!.celsius!.round()}°C',
                                         style: const TextStyle(
                                             fontSize: 16,
                                             color: Colors.white,
@@ -274,7 +300,7 @@ class HomeScreen extends StatelessWidget {
                                         height: 3,
                                       ),
                                       Text(
-                                        '${state.weather.tempMin!.celsius!.round()}',
+                                        '${state.weather.tempMin!.celsius!.round()} °C',
                                         style: const TextStyle(
                                             fontSize: 16,
                                             color: Colors.white,
